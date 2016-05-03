@@ -1,4 +1,4 @@
-var app=angular.module("cookieCutter",["ui.router"]);
+var app=angular.module("erp",["ui.router"]);
 
 app.controller('MainCtrl', ['$scope','$rootScope','$state', function($scope,$rootScope,$state){
 	$rootScope.apiend="api/public/";
@@ -7,7 +7,7 @@ app.controller('MainCtrl', ['$scope','$rootScope','$state', function($scope,$roo
 	$rootScope.error="Hello";
 
 	$scope.logout=function(){
-		localStorage.removeItem('cookietoken');
+		localStorage.removeItem('erptoken');
 		$state.go('login');
 	}
 }]);
