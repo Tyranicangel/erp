@@ -4,6 +4,8 @@ use Illuminate\Database\Seeder;
 use Illuminate\Database\Eloquent\Model;
 use App\Role;
 use App\User;
+use App\Module;
+use App\Menu;
 
 class DatabaseSeeder extends Seeder {
 
@@ -18,6 +20,40 @@ class DatabaseSeeder extends Seeder {
 
 		$this->call('RoleTableSeeder');
 		$this->call('UserTableSeeder');
+		$this->call('ModuleTableSeeder');
+		$this->call('MenuTableSeeder');
+	}
+
+}
+
+class MenuTableSeeder extends Seeder {
+
+	/**
+	 * Run the database seeds.
+	 *
+	 * @return void
+	 */
+	public function run()
+	{
+		Model::unguard();
+		Menu::create(['role'=>1,'module_id'=>1,'menu'=>'Home','slug'=>'main','priority'=>1]);
+		Menu::create(['role'=>1,'module_id'=>1,'menu'=>'Masters','slug'=>'masters','priority'=>2]);
+	}
+
+}
+
+class ModuleTableSeeder extends Seeder {
+
+	/**
+	 * Run the database seeds.
+	 *
+	 * @return void
+	 */
+	public function run()
+	{
+		Model::unguard();
+		Module::create(['role'=>1,'module'=>'Office','color'=>'#bababa','icon'=>'fa fa-desktop','slug'=>'office','priority'=>'1']);
+		Module::create(['role'=>1,'module'=>'Users','color'=>'#f5f5f5','icon'=>'fa fa-users','slug'=>'users','priority'=>'2']);
 	}
 
 }
