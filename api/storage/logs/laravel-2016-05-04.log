@@ -121,3 +121,15 @@ Stack trace:
 #52 C:\xampp\htdocs\erp\api\vendor\compiled.php(1880): Illuminate\Foundation\Http\Kernel->sendRequestThroughRouter(Object(Illuminate\Http\Request))
 #53 C:\xampp\htdocs\erp\api\public\index.php(53): Illuminate\Foundation\Http\Kernel->handle(Object(Illuminate\Http\Request))
 #54 {main}  
+[2016-05-04 12:28:01] local.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'Cannot use App\User as User because the name is already in use' in C:\xampp\htdocs\erp\api\app\Http\Controllers\UsersController.php:9
+Stack trace:
+#0 {main}  
+[2016-05-04 12:54:31] local.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'syntax error, unexpected '$response' (T_VARIABLE)' in C:\xampp\htdocs\erp\api\app\Http\Controllers\UsersController.php:26
+Stack trace:
+#0 {main}  
+[2016-05-04 12:55:11] local.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'Call to undefined function App\Http\Controllers\sha256()' in C:\xampp\htdocs\erp\api\app\Http\Controllers\UsersController.php:46
+Stack trace:
+#0 {main}  
+[2016-05-04 12:56:05] local.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'syntax error, unexpected ')'' in C:\xampp\htdocs\erp\api\app\Http\Controllers\UsersController.php:46
+Stack trace:
+#0 {main}  

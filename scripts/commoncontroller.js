@@ -31,8 +31,6 @@ app.controller('MenuCtrl', ['$scope','$http','$rootScope','$state', function($sc
 		params:{state:$scope.cstate[0]}
 	}).success(function(result){
 		$scope.menus=result;
-	}).error(function(err,data){
-		$scope.logout();
 	});
 
 	$http({

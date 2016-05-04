@@ -7,8 +7,5 @@ app.controller('UserMainCtrl', ['$scope','$http','$rootScope', function($scope,$
 	}).success(function(result){
 		$rootScope.showloader=false;
 		$scope.modules=result;
-	}).error(function(err,data){
-		$rootScope.showloader=false;
-		$scope.logout();
 	});
 }]);

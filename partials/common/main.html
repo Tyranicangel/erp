@@ -6,7 +6,9 @@
 	</div>
 	<div class="row">
 		<div class="col-md-3">
+			<a class="container-fluid" ui-sref="user.main">Menus</a>
 			<a class="container-fluid" ui-sref="{{cstate[0]+'.'+menu.slug}}" ng-repeat="menu in menus" ui-sref-active="active">{{menu.menu}}</a>
+			<a class="container-fluid" ng-click="logout()">Logout</a>
 		</div>
 		<div class="col-md-9" ui-view="content"></div>
 	</div>

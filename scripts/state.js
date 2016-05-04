@@ -53,5 +53,31 @@ app.config(function($stateProvider,$urlRouterProvider){
 					controller:'OfficeMastersCtrl'
 				}
 			}
+		}).
+		state('users',{
+			views:{
+				"main":{
+					templateUrl:"partials/common/main.html",
+					controller:'MenuCtrl'
+				}
+			}
+		}).
+		state('users.main',{
+			url: '/users/main',
+			views:{
+				"content":{
+					templateUrl:"partials/users/main.html",
+					controller:'UsersMainCtrl'
+				}
+			}
+		}).
+		state('users.masters',{
+			url: '/users/masters',
+			views:{
+				"content":{
+					templateUrl:"partials/users/masters.html",
+					controller:'UsersMastersCtrl'
+				}
+			}
 		});
 });

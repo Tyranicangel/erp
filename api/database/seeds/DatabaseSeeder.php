@@ -38,6 +38,8 @@ class MenuTableSeeder extends Seeder {
 		Model::unguard();
 		Menu::create(['role'=>1,'module_id'=>1,'menu'=>'Home','slug'=>'main','priority'=>1]);
 		Menu::create(['role'=>1,'module_id'=>1,'menu'=>'Masters','slug'=>'masters','priority'=>2]);
+		Menu::create(['role'=>1,'module_id'=>2,'menu'=>'Home','slug'=>'main','priority'=>1]);
+		Menu::create(['role'=>1,'module_id'=>2,'menu'=>'Masters','slug'=>'masters','priority'=>2]);
 	}
 
 }

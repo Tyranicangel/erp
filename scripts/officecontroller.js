@@ -11,9 +11,6 @@ app.controller('OfficeMastersCtrl', ['$scope','$http','$rootScope', function($sc
 	}).success(function(result){
 		$rootScope.showloader=false;
 		$scope.offices=result;
-	}).error(function(err,data){
-		$rootScope.showloader=false;
-		$scope.logout();
 	});
 
 	$scope.activate=function(office){

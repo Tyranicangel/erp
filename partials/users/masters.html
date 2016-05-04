@@ -1,0 +1,84 @@
+<div class="container-fluid">
+	<h3>Users Masters</h3>
+	<div class="alert alert-warning" ng-show="users.length==0">There are no users created yet.Please add one.</div>
+	<table class="table table-striped" ng-show="users.length>0">
+		<thead>
+			<tr>
+				<th>Sno</th>
+				<th>Username</th>
+				<th>Name</th>
+				<th>Email</th>
+				<th>Phone No</th>
+				<th>Address</th>
+				<th>Designation</th>
+				<th>Office</th>
+				<th>Activate/Deactivate</th>
+				<th>Edit</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="user in users">
+				<td>{{$index+1}}</td>
+				<td>{{user.username}}</td>
+				<td>{{user.name}}</td>
+				<td>{{user.email}}</td>
+				<td>{{user.phoneno}}</td>
+				<td>{{user.address}}</td>
+				<td>{{user.designation}}</td>
+				<td>{{user.officedetails.officedata.name}}</td>
+				<td ng-show="user.active==1"><button class="btn btn-danger btn-xs" ng-click="deactivate(user)">Deactivate</button></td>
+				<td ng-show="user.active==0"><button class="btn btn-success btn-xs" ng-click="activate(user)">Activate</button></td>
+				<td><button class="btn btn-primary btn-xs" ng-click="edit(user)">Edit</button></td>
+			</tr>
+		</tbody>
+	</table>
+	<button class="btn btn-default" ng-click="add()">Add</button>
+</div>
+<div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<form ng-submit="save()">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<h4 class="modal-title" id="myModalLabel">Users Masters</h4>
+				</div>
+				<div class="modal-body">
+					<div class="form-group">
+						<label>Username</label>
+						<input type="text" class="form-control" ng-model="muser.username" required>
+					</div>
+					<div class="form-group">
+						<label>Name</label>
+						<input type="text" class="form-control" ng-model="muser.name" required>
+					</div>
+					<div class="form-group">
+						<label>Email</label>
+						<input type="email" class="form-control" ng-model="muser.email" required>
+					</div>
+					<div class="form-group">
+						<label>Address</label>
+						<textarea class="form-control" ng-model="muser.address" required></textarea>
+					</div>
+					<div class="form-group">
+						<label>Phone No</label>
+						<input type="text" class="form-control" ng-model="muser.phoneno" required>
+					</div>
+					<div class="form-group">
+						<label>Designation</label>
+						<input type="text" class="form-control" ng-model="muser.designation" required>
+					</div>
+					<div class="form-group">
+						<label>Office</label>
+						<select class="form-control" ng-model="muser.officedetails.office" ng-options="office.id as office.name for office in offices" required>
+							<option value="">Select</option>
+						</select>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					<button type="submit" class="btn btn-primary">Save</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>

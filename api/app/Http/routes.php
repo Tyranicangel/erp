@@ -28,3 +28,11 @@ Route::post('/save_office', ['middleware'=>'auth','uses'=>'OfficeController@save
 Route::post('/activate_office', ['middleware'=>'auth','uses'=>'OfficeController@activate_office']);
 
 Route::post('/deactivate_office', ['middleware'=>'auth','uses'=>'OfficeController@deactivate_office']);
+
+Route::get('/users', ['middleware'=>'auth','uses'=>'UsersController@users']);
+
+Route::post('/save_user', ['middleware'=>'auth','uses'=>'UsersController@save_user']);
+
+Route::post('/activate_user', ['middleware'=>'auth','uses'=>'UsersController@activate_user']);
+
+Route::post('/deactivate_user', ['middleware'=>'auth','uses'=>'UsersController@deactivate_user']);
