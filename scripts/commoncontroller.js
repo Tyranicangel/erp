@@ -34,6 +34,16 @@ app.controller('MenuCtrl', ['$scope','$http','$rootScope','$state', function($sc
 	}).error(function(err,data){
 		$scope.logout();
 	});
+
+	$http({
+		method:'GET',
+		url:$rootScope.apiend+'checkuser',
+		headers:{'JWT-AuthToken':localStorage.getItem('erptoken')}
+	}).success(function(result){
+		$scope.mainuser=result;
+	}).error(function(err,data){
+		$scope.logout();
+	});
 }]);
 
 app.controller('UserCtrl', ['$scope','$rootScope','$http', function($scope,$rootScope,$http){
