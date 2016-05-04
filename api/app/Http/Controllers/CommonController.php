@@ -7,9 +7,30 @@ use Request;
 use App\User;
 use App\Session;
 use App\Role;
+use App\Module;
+use App\Menu;
 use Carbon\Carbon;
 
 class CommonController extends Controller {
+
+	public function menus(){
+		$date=Carbon::now();
+		$tkn= Request::header('JWT-AuthToken');
+		$admin=Session::where('token','=',$tkn)->where('expiry','>',$date)->whereHas('users',function($q){
+				$q->where('active','=','1');
+			})->first();
+		$module=Module::where('slug','=',Request::get('state'))->first();
+		return Menu::where('module_id','=',$module->id)->where('role','=',$admin->users->role)->orderBy('priority')->get();
+	}
+
+	public function modules(){
+		$date=Carbon::now();
+		$tkn= Request::header('JWT-AuthToken');
+		$admin=Session::where('token','=',$tkn)->where('expiry','>',$date)->whereHas('users',function($q){
+				$q->where('active','=','1');
+			})->first();
+		return Module::where('role','=',$admin->users->role)->orderBy('priority')->get();
+	}
 
 	public function login(){
 		$date=Carbon::now();

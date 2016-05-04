@@ -22,13 +22,27 @@ app.controller('LoginCtrl', ['$scope','$rootScope','$http','$state', function($s
 	}
 }]);
 
+app.controller('MenuCtrl', ['$scope','$http','$rootScope','$state', function($scope,$http,$rootScope,$state){
+	$scope.cstate=$state.current.name.split('.');
+	$http({
+		method:'GET',
+		url:$rootScope.apiend+'menus',
+		headers:{'JWT-AuthToken':localStorage.getItem('erptoken')},
+		params:{state:$scope.cstate[0]}
+	}).success(function(result){
+		$scope.menus=result;
+	}).error(function(err,data){
+		$scope.logout();
+	});
+}]);
+
 app.controller('UserCtrl', ['$scope','$rootScope','$http', function($scope,$rootScope,$http){
 	$http({
 		method:'GET',
 		url:$rootScope.apiend+'checkuser',
 		headers:{'JWT-AuthToken':localStorage.getItem('erptoken')}
 	}).success(function(result){
-		console.log(result);
+		$scope.mainuser=result;
 	}).error(function(err,data){
 		$scope.logout();
 	});

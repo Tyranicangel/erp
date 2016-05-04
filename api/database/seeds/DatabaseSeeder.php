@@ -32,7 +32,9 @@ class RoleTableSeeder extends Seeder {
 	public function run()
 	{
 		Model::unguard();
-		Role::create(['role'=>'Admin','link'=>'admin.main']);
+		Role::create(['role'=>'Admin','link'=>'user.main']);
+		Role::create(['role'=>'HR','link'=>'user.main']);
+		Role::create(['role'=>'HR Incharge','link'=>'user.main']);
 	}
 
 }
